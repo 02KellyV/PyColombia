@@ -19,7 +19,7 @@ from .views import home
 from django.conf import settings
 from django.conf.urls.static import static
 from django.conf.urls import include, url
-from .views import signUp
+from .views import signUp, signIn
 from blog.urls import urlpatterns as blog
 
 urlpatterns = \
@@ -28,6 +28,7 @@ urlpatterns = \
         url(r'^$', home),
         #url(r'^accounts/', include('registration.backends.hmac.urls')),
         url(r'^signup$', signUp, name='signup'),
+        url(r'^signin$', signIn, name='signin'),
         url('blog/', include('blog.urls')),
         url('admin/', admin.site.urls),
     ]

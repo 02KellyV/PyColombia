@@ -5,11 +5,37 @@
 <main role="main">
     {% include '../header.html' %}
 
-    ALL
-    {% for field in form %}
-        d
-    {% endfor %}
-
+    <br />
+    <div class="container">
+        <div>
+            <a class="btn btn-primary" href="/blog/nuevo">Nuevo</a>
+        </div>
+        <table class="table" style="width: 100%">
+            <thead>
+                <tr>
+                    <th style="width: 200px">
+                        Titulo
+                    </td>
+                    <th>
+                        Contenido
+                    </td>
+                    <td style="width: 160px"></td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for post in posts %}
+                <tr>
+                    <td>{{ post.title }}</td>
+                    <td>{{ post.text }} </td>
+                    <td>
+                        <a href="/blog/editar/{{ post.id }}">Modificar</a>
+                        <a href="/blog/{{ post.id }}/remove">Eliminar</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div>
 </main>
 
 {% include '../footer.html' %}
